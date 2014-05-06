@@ -1,0 +1,6 @@
+first:
+  second_misspell:
+    third:
+      - 1
+      - 2
+    fourth: value

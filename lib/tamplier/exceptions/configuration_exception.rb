@@ -1,0 +1,2 @@
+class ConfigurationException < RuntimeError
+end
