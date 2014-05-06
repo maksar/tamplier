@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/tamplier'
+
+require 'commander'
+
+Commander.configure do
+  program :name, 'Tamplier'
+  program :version, Tamplier::VERSION
+  program :description, 'Tamplier provides ability to manage .yml.sample config files in your ruby projects.'
+  program :help, 'Author', 'Alexander Shestakov <Maksar.mail@gmail.com>'
+
+  command :check do |c|
+    c.syntax = 'tamplier check'
+    c.description = 'Check current application configuration'
+    c.option '-e ENV', String, 'Sets environment to check (default: development)'
+    c.action do |args, options|
+      options.default e: 'development'
+      Tamplier::Validator.new.ensure(Pathname('.').join('config'), options.e)
+      puts "Your configuration seems to be correct."
+    end
+  end
+
+  default_command :check
+end

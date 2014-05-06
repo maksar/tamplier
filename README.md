@@ -23,6 +23,13 @@ Or install it yourself as:
 
 Being included in Rails application, gem checks, that current environment configuration if valid (`.yml` files, backed by `.yml.sample` files have same set of keys). If configuration is not _complete_, exception will be raised and application will not start.
 
+Gem provides a command line utility `tamplier` which allows to perform configuration check.
+
+To check `.yml` files in `config` subdirectory of current path, use
+
+    $ tamplier check [-e ENV]
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/maksar/tamplier/fork )

@@ -23,6 +23,9 @@ TXT
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "commander", "~> 4.2.0"
+  spec.add_runtime_dependency "activesupport"
+
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rails"
