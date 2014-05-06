@@ -23,10 +23,10 @@ module Tamplier
       (YAML.load(file.read).keys & %w[development test]).present?
     end
 
-    def flat_keys(hash, path = nil)
-      return path unless hash.is_a?(Hash)
+    def flat_keys(hash, path = '')
+      return [path] unless hash.is_a?(Hash)
       hash.map do |key, value|
-        flat_keys(value, [path, key].compact.join('/'))
+        flat_keys(value, path.blank? ? key : [path, key].join('/'))
       end.flatten
     end
   end

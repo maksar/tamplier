@@ -2,8 +2,8 @@ require 'pathname'
 require 'yaml'
 require 'active_support/all'
 
-require 'tamplier/version'
-require 'tamplier/exceptions/configuration_exception'
-require 'tamplier/validator'
+require_relative 'tamplier/version'
+require_relative 'tamplier/exceptions/configuration_exception'
+require_relative 'tamplier/validator'
 
 require 'tamplier/railtie' if defined?(Rails)
