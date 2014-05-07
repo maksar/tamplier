@@ -9,9 +9,12 @@ module Tamplier
           raise ConfigurationException.new("There is no #{environment} environment in the #{config_file} file.") unless YAML.load(config_file.read)[environment].present?
         end
 
+        sample_config = YAML.load(sample_file.read)
+        real_config   = YAML.load(config_file.read)
+
         diff = environmental_file?(sample_file) ?
-          flat_keys(YAML.load(sample_file.read)['development']) - flat_keys(YAML.load(config_file.read)[environment]) :
-          flat_keys(YAML.load(sample_file.read))                - flat_keys(YAML.load(config_file.read))
+          flat_keys(sample_config['development']) - flat_keys(real_config[environment]) :
+          flat_keys(sample_config)                - flat_keys(real_config)
 
         raise ConfigurationException.new("Several keys #{diff.inspect} from #{sample_file} are not in #{config_file} file.") unless diff.empty?
       end
