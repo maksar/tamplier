@@ -1,9 +1,9 @@
 How many times your deploys were failed, because you forgot to update `.yml` files on server... No more!
 
-Tamplier gem checks, that all keys from any `.yml.sample` files are actually exist in real `.yml` files.
+Tamplier gem checks, that all keys from any `.yml.sample` (or `.sample.yml` or maybe `.example.yml` or even `.yml.example`) files are actually exist in real `.yml` files.
 That allows to detect configuration problems earlier and spend less time on deployment problems investigations.
 
-Gem also provides command line utility to quickly setup fresh development environment by copying or symlinking `.yml.sample` files.
+Gem also provides command line utility to quickly setup fresh development environment by copying or symlinking sample files.
 
 ## Installation
 
@@ -29,11 +29,11 @@ To check `.yml` files in `config` subdirectory of current path, use
 
     $ tamplier check [-e ENV]
 
-To create a copy of every `.yml.sample` file (with `.yml` extension) in `config` subdirectory of current path, use
+To create a copy of every sample file (with `.yml` extension) in `config` subdirectory of current path, use
 
     $ tamplier copy
 
-To create a symbolic links (`.yml` file will point to `.yml.sample`) in `config` subdirectory of current path, use
+To create a symbolic links (`.yml` file will point to sample file) in `config` subdirectory of current path, use
 
     $ tamplier symlink
 

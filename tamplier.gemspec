@@ -8,12 +8,12 @@ Gem::Specification.new do |spec|
   spec.version       = Tamplier::VERSION
   spec.authors       = ["Alexander Shestakov"]
   spec.email         = ["Maksar.mail@gmail.com"]
-  spec.summary       = %q{Tamplier gem provides ability to manage .yml.sample config files in your ruby projects.}
+  spec.summary       = %q{Tamplier gem provides ability to manage sample config files in your ruby projects.}
   spec.description   = <<-TXT
 How many times your deploys were failed, because you forgot to update .yml files on server... No more!
-Tamplier gem checks, that all keys from any .yml.sample files are actually exist in real .yml files.
+Tamplier gem checks, that all keys from any sample files are actually exist in real .yml files.
 That allows to detect configuration problems earlier and spend less time on deployment problems investigations.
-Gem also provides command line utility to quickly setup fresh development environment by copying or symlinking .yml.sample files.
+Gem also provides command line utility to quickly setup fresh development environment by copying or symlinking sample files.
 TXT
   spec.homepage      = "https://github.com/maksar/tamplier"
   spec.license       = "MIT"

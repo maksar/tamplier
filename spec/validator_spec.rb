@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'tamplier/exceptions/configuration_exception'
+require 'tamplier/iterator'
 require 'tamplier/validator'
 
 describe Tamplier::Validator do

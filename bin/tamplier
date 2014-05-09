@@ -2,6 +2,7 @@
 
 require_relative '../lib/tamplier'
 require_relative '../lib/tamplier/iterator'
+require_relative '../lib/tamplier/problem_iterator'
 require_relative '../lib/tamplier/copy'
 require_relative '../lib/tamplier/symlink'
 
@@ -11,7 +12,7 @@ require 'commander'
 Commander.configure do
   program :name, 'Tamplier'
   program :version, Tamplier::VERSION
-  program :description, 'Tamplier provides ability to manage .yml.sample config files in your ruby projects.'
+  program :description, 'Tamplier provides ability to manage sample config files in your ruby projects.'
   program :help, 'Author', 'Alexander Shestakov <Maksar.mail@gmail.com>'
 
   command :check do |c|
@@ -29,7 +30,7 @@ Commander.configure do
 
   command :copy do |c|
     c.syntax = 'tamplier copy'
-    c.description = 'Creates copies of all .yml.sample files in config directory with .yml extension'
+    c.description = 'Creates copies of all sample files in config directory with .yml extension'
     c.action do |args, options|
       Tamplier::Copy.new.call(Pathname('.').join('config'))
     end
@@ -37,7 +38,7 @@ Commander.configure do
 
   command :symlink do |c|
     c.syntax = 'tamplier copy'
-    c.description = 'Creates symbolic links with .yml extension pointing to .yml.sample files'
+    c.description = 'Creates symbolic links with .yml extension pointing to sample files'
     c.action do |args, options|
       Tamplier::Symlink.new.call(Pathname('.').join('config'))
     end

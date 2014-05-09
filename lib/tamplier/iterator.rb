@@ -1,13 +1,10 @@
 module Tamplier
   class Iterator
+    TEMPLATES = %w[yml.sample sample.yml yml.example example.yml]
     def call(root)
-      Pathname.glob(File.join(root, '*.yml.sample')).each do |sample_file|
-        config_file = sample_file.sub_ext('')
-
-        if config_file.exist? || config_file.symlink?
-          puts "#{config_file} already exist, skipping."
-        else
-          yield(sample_file, config_file)
+      TEMPLATES.each do |template|
+        Pathname.glob(File.join(root, "*.#{template}")).each do |sample_file|
+          yield(sample_file, sample_file.sub(template, 'yml'))
         end
       end
     end

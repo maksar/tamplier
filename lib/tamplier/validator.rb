@@ -1,8 +1,7 @@
 module Tamplier
   class Validator
     def ensure(root, environment = nil)
-      Pathname.glob(File.join(root, '*.yml.sample')).each do |sample_file|
-        config_file = sample_file.sub_ext('')
+      Iterator.new.call(root) do |sample_file, config_file|
         raise ConfigurationException.new("Configuration file #{config_file} does not exist, but sample file #{sample_file} does.") unless config_file.exist?
 
         if environmental_file?(sample_file)
